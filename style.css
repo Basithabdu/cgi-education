@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Inter", sans-serif;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+.cgi {
+  font-weight:900;
+  font-size: xx-large;
+  color:red;
+}
+
+nav{
+background:#0f172a;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+nav h2{
+color:#38bdf8;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li{
+cursor:pointer;
+font-weight:bold;
+}
+
+nav ul li:hover{
+color:#FF0000;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1509062522246-3755977927d7");
+background-size:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+.btn{
+padding:12px 25px;
+background:#FF0000;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:5px;
+}
+
+.btn:hover{
+background:#ee6f6f;
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 60px;
+}
+
+.title{
+text-align:center;
+margin-bottom:40px;
+font-size:32px;
+color:#0f172a;
+}
+
+/* PROGRAMS */
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card container */
+.card {
+  perspective: 1000px;
+}
+
+/* Inner wrapper for flip */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip effect */
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  backface-visibility: hidden;
+}
+
+/* Front side */
+.card-front {
+  background: #f5f7fa;
+}
+
+/* Back side */
+.card-back {
+  background: #FF0000;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.card:active .card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* ABOUT */
+
+.about {
+  padding: 60px 20px;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* text */
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* image */
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ✅ Responsive (mobile) */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
+  }
+}
+
+/* ADMISSION */
+
+.form-section{
+display:none;
+background:#f1f5f9;
+padding:80px 20px;
+}
+
+.form-container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.grid input, .grid textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+width:100%;
+}
+
+/* RESOURCES */
+
+.resource-list{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.resource{
+background:#FF0000;
+color:white;
+padding:15px 25px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* CONTACT */
+
+.contact{
+background:#f8fafc;
+}
+
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:12px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+/* FOOTER */
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+
+/* data base css */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-content{
+background:white;
+padding:30px;
+width:90%;
+max-width:500px;
+border-radius:10px;
+text-align:center;
+animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0.6);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+.modal-content input,
+.modal-content textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.close{
+float:right;
+font-size:25px;
+cursor:pointer;
+}
+
+/* Student Resource */
+.resource-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-bottom:30px;
+}
+
+.resource{
+  background:#0f172a;
+  color:white;
+  padding:15px 25px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.resource:hover{
+  background:#FF0000;
+  transform:translateY(-3px);
+}
+
+.resource-content{
+  max-width:800px;
+  margin:0 auto;
+  background:#f8fafc;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  line-height:1.8;
+}
+
+.resource-content h3{
+  color:#0f172a;
+  margin-bottom:10px;
+}
+
+/* Testimonial section */
+
+/* TESTIMONIAL SECTION */
+.testimonials {
+  padding: 60px 20px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.testimonials .title {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* CARD DESIGN */
+.testimonial-card {
+  background: #fff;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+/* TEXT */
+.testimonial-card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.testimonial-card h4 {
+  color: #007bff;
+  font-size: 14px;
+}
+
+/* OWL CAROUSEL CUSTOM */
+.owl-carousel .item {
+  padding: 10px;
+}
+
+/* DOTS */
+.owl-dots {
+  margin-top: 20px;
+}
+
+.owl-dot span {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.owl-dot.active span {
+  background: #007bff;
+}

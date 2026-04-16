@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CGI Academy</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+</head>
+<body>
+  <nav>
+    <h2 class="cgi">CGI</h2>
+
+    <ul>
+      <li data-target="home">Home</li>
+      <li data-target="programs">Programs</li>
+      <li data-target="about">About</li>
+      <li data-target="admission">Admissions</li>
+      <li data-target="resources">Resources</li>
+      <li data-target="testimonial">Testimonial</li>
+      <li data-target="contact">Contact</li>
+    </ul>
+  </nav>
+
+
+  <!-- JAvaScript -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("nav ul li").forEach(item => {
+        item.addEventListener("click", () => {
+          const section = item.getAttribute("data-target");
+
+          const target = document.getElementById(section);
+
+          if(target){
+            target.scrollIntoView({
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- HERO -->
+
+  <div class="hero" id="home">
+    <div>
+      <h1>Innovative Learning for Future Leaders</h1>
+        <p>Personalized education from preschool to adult learning 🎯</p>
+      <button class="btn" onclick="goTo('admission')">Apply Now</button>
+    </div>
+  </div>
+
+  <!-- PROGRAMS -->
+
+  <section id="programs">
+    <h2 class="title">Our Programs</h2>
+
+    <div class="program-grid">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Early Childhood</h3>
+          </div>
+          <div class="card-back">
+            <p>Creative learning foundation for young minds.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>School Programs</h3>
+          </div>
+          <div class="card-back">
+            <p>Modern curriculum with technology integration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Skill Development</h3>
+          </div>
+          <div class="card-back">
+            <p>Career-focused practical training courses.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Adult Learning</h3>
+          </div>
+          <div class="card-back">
+            <p>Flexible professional & continuing education.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+    <div class="about-container">
+
+      <!-- LEFT CONTENT -->
+      <div class="about-text">
+        <h2 class="title">About</h2>
+        <p>
+          We focus on innovation, personalized learning paths and community growth.
+          Our mission is to empower students with real-world skills and confidence.
+        </p>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="./assets/images/ED1.jpeg" alt="About Image">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADMISSION -->
+
+  <section class="admission" id="admission">
+    <div class="form-container">
+
+      <h3>ADMISSION FORM</h3>
+
+      <form onsubmit="submitAdmission(event)">
+
+        <div class="grid">
+          <input type="text" placeholder="Student's Name" required>
+          <input type="text" placeholder="Father's Name" required>
+
+          <input type="text" placeholder="Caste">
+          <input type="text" placeholder="Occupation">
+
+          <input type="text" placeholder="Qualification">
+          <input type="text" placeholder="Income">
+
+          <label>Date of Birth</label>
+          <input type="date">
+
+          <input type="text" placeholder="Class for Admission">
+          <input type="text" placeholder="Admission Fee">
+          <input type="text" placeholder="Tuition Fee">
+
+          <input type="text" placeholder="Signature of Father / Guardian">
+
+          <textarea placeholder="Temporary Address"></textarea>
+          <textarea placeholder="Permanent Address"></textarea>
+        </div>
+
+        <h3>FOR OFFICE USE</h3>
+
+        <div class="grid">
+          <input type="text" placeholder="Student Name">
+          <input type="text" placeholder="Father Name">
+          <input type="text" placeholder="Admission No">
+          <input type="text" placeholder="Registration Fee">
+          <textarea placeholder="Report of Admission Committee"></textarea>
+          <input type="text" placeholder="Signature of Principal">
+        </div>
+
+        <button class="btn">Submit Admission</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    function submitAdmission(e){
+      e.preventDefault();
+
+      const inputs = document.querySelectorAll(".admission input[required]");
+      let valid = true;
+
+      inputs.forEach(input => {
+        if(input.value.trim() === ""){
+          input.style.border = "2px solid red";
+          valid = false;
+        } else {
+          input.style.border = "1px solid #ccc";
+        }
+      });
+
+      if(valid){
+        alert("Admission Form Submitted Successfully ✅");
+      } else {
+        alert("Please fill all required fields ❌");
+      }
+    }
+  </script>
+
+  <!-- RESOURCES -->
+
+  <section id="resources">
+    <h2 class="title">Student Resources</h2>
+
+    <div class="resource-list">
+      <div class="resource" onclick="showResource('syllabus')">Syllabus</div>
+      <div class="resource" onclick="showResource('exam')">Exam Dates</div>
+      <div class="resource" onclick="showResource('portal')">Parent Portal</div>
+      <div class="resource" onclick="showResource('career')">Career Help</div>
+    </div>
+
+    <!-- Resource Content Box -->
+    <div id="resourceContent" class="resource-content">
+      <h3>Click any resource above</h3>
+      <p>The details will appear here one by one.</p>
+    </div>
+  </section>
+
+  <script>
+  function showResource(type){
+    let content = document.getElementById("resourceContent");
+
+    if(type === "syllabus"){
+      content.innerHTML = `
+        <h3>Syllabus</h3>
+        <p>Here students can view and download the syllabus for all classes and subjects.</p>
+        <ul>
+          <li>English Syllabus</li>
+          <li>Mathematics Syllabus</li>
+          <li>Science Syllabus</li>
+          <li>Islamic Studies Syllabus</li>
+        </ul>
+      `;
+    }
+
+    else if(type === "exam"){
+      content.innerHTML = `
+        <h3>Exam Dates</h3>
+        <p>Students can check the upcoming examination schedule below.</p>
+        <ul>
+          <li>Monthly Test: 10 April 2026</li>
+          <li>Mid Term Exam: 15 June 2026</li>
+          <li>Final Exam: 20 November 2026</li>
+        </ul>
+      `;
+    }
+
+    else if(type === "portal"){
+      content.innerHTML = `
+        <h3>Parent Portal</h3>
+        <p>Parents can use the portal to monitor their child's academic progress.</p>
+        <ul>
+          <li>Check attendance</li>
+          <li>View marks and reports</li>
+          <li>Communicate with teachers</li>
+          <li>Receive school announcements</li>
+        </ul>
+      `;
+    }
+
+    else if(type === "career"){
+      content.innerHTML = `
+        <h3>Career Help</h3>
+        <p>Students can get career guidance and future planning support.</p>
+        <ul>
+          <li>Career counseling sessions</li>
+          <li>Higher education guidance</li>
+          <li>Skill development workshops</li>
+          <li>Interview preparation support</li>
+        </ul>
+      `;
+    }
+  }
+  </script>
+
+
+  <!-- Testimonials Section -->
+
+  <section class="testimonials" id="testimonial">
+    <h2 class="title">What Our Students Say</h2>
+
+    <div class="owl-carousel">
+
+      <div class="testimonial-card">
+        <p>"This academy helped me build real skills and confidence."</p>
+        <h4>- Aisha Rahman</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <p>"Excellent teaching and supportive environment!"</p>
+        <h4>- Rahul Kumar</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <p>"Great learning atmosphere and friendly teachers."</p>
+        <h4>- Imran Ali</h4>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+    <h2 class="title">Contact Us</h2>
+
+    <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Student's Name" required>
+    <input type="text" placeholder="Father's Name" required>
+    <input type="date" required>
+    <button class="btn">Send Message</button>
+    </form>
+
+  </section>
+
+  <footer>
+  © 2026 CGI Educational Academy | All Rights Reserved
+  </footer>
+
+  <script>
+    function submitForm(e){
+      e.preventDefault();
+
+      const btn = e.target.querySelector("button");
+      btn.innerText = "Sending...";
+
+      setTimeout(() => {
+        btn.innerText = "Send Message";
+        alert("Message Sent Successfully ✅");
+      }, 1500);
+    }
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 2500,
+      responsive:{
+        0:{ items:1 },
+        600:{ items:2 },
+        1000:{ items:3 }
+      }
+    });
+  </script>
+
+</body>
+</html>
